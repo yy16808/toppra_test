@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\toppra_project\toppra_test1\toppra_test1\main.cpp(4): error C2259: “scara_joint_torque”: 不能实例化抽象类
+  c:\toppra_project\toppra_test1\toppra_test1\main.cpp(4): note: 由于下列成员:
+  c:\toppra_project\toppra_test1\toppra_test1\main.cpp(4): note: “void toppra::constraint::JointTorque::computeInverseDynamics(const toppra::Vector &,const toppra::Vector &,const toppra::Vector &,toppra::Vector &)”: 是抽象的
+  c:\toppra_project\toppra_test1\toppra_test1\joint_torque.hpp(44): note: 参见“toppra::constraint::JointTorque::computeInverseDynamics”的声明
