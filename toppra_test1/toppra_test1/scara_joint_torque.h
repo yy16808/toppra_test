@@ -11,16 +11,15 @@ namespace toppra {
 		public:
 			Vector m_lower, m_upper, m_frictionCoeffs;
 		public:
-			scara_joint_torque() {}
+			
+		
+			scara_joint_torque(const Vector& lowerTlimit, const Vector& uperTlimit, const Vector& frictionCoeffs)
+				: JointTorque(lowerTlimit, uperTlimit,frictionCoeffs)
+				//, m_model(model)
+				//, m_data(model)
+			{
 
-			//scara_joint_torque(const Vector& lowerTlimit, const Vector& upperTlimit,const Vector& frictionCoeffs)
-			//	//: LinearConstraint(2 * lowerTlimit.size(), lowerTlimit.size(), true, false, false)
-			//	: m_lower(lowerTlimit)
-			//	, m_upper(upperTlimit)
-			//	, m_frictionCoeffs(frictionCoeffs)
-			//{
-			//	this->check();
-			//}
+			}
 
 			~scara_joint_torque();
 			void check();

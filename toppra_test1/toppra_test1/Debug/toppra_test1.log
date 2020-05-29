@@ -1,20 +1,11 @@
-﻿生成启动时间为 2020-5-29 13:30:54。
+﻿生成启动时间为 2020-5-29 20:17:27。
      1>项目“D:\toppra_project\toppra_test\toppra_test1\toppra_test1\toppra_test1.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\eigen-3.3.7" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt algorithm.cpp constraint.cpp geometric_path.cpp joint_torque.cpp main.cpp scara_joint_torque.cpp solver.cpp
-         scara_joint_torque.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\eigen-3.3.7" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp scara_joint_torque.cpp
          main.cpp
-         joint_torque.cpp
-     1>d:\toppra_project\toppra_test\toppra_test1\toppra_test1\joint_torque.cpp(43): warning C4018: “<”: 有符号/无符号不匹配
          正在生成代码...
-         正在编译...
-         solver.cpp
-         geometric_path.cpp
-     1>d:\toppra_project\toppra_test\toppra_test1\toppra_test1\geometric_path.cpp(8): warning C4018: “<”: 有符号/无符号不匹配
-         constraint.cpp
-         algorithm.cpp
-     1>d:\toppra_project\toppra_test\toppra_test1\toppra_test1\algorithm.cpp(82): warning C4018: “<”: 有符号/无符号不匹配
-         正在生成代码...
+         正在跳过...(未检测到相关更改)
+         scara_joint_torque.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\toppra_project\toppra_test\toppra_test1\Debug\toppra_test1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\toppra_project\toppra_test\toppra_test1\Debug\toppra_test1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\toppra_project\toppra_test\toppra_test1\Debug\toppra_test1.lib" /MACHINE:X86 Debug\algorithm.obj
          Debug\constraint.obj
@@ -28,4 +19,4 @@
 
 已成功生成。
 
-已用时间 00:00:05.14
+已用时间 00:00:00.92
