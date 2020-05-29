@@ -46,6 +46,7 @@ enum DiscretizationType {
  * */
 class LinearConstraint {
   public:
+	
     DiscretizationType discretizationType () const
     {
       return m_discretizationType;

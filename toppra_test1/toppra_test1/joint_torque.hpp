@@ -31,6 +31,7 @@ namespace constraint {
  * */
 class JointTorque : public LinearConstraint {
   public:
+	 
     virtual ~JointTorque () {}
 
     virtual std::ostream& print(std::ostream& os) const;
@@ -50,15 +51,15 @@ class JointTorque : public LinearConstraint {
      * \param upperTlimit upper torque limit
      * \param frictionCoeffs dry friction coefficients of each joint.
      * */
-    JointTorque (const Vector& lowerTlimit, const Vector& upperTlimit,
-        const Vector& frictionCoeffs)
-      : LinearConstraint (2*lowerTlimit.size(), lowerTlimit.size(), true, false, false)
-      , m_lower (lowerTlimit)
-      , m_upper (upperTlimit)
-      , m_frictionCoeffs (frictionCoeffs)
-    {
-      check();
-    }
+	  JointTorque(const Vector& lowerTlimit, const Vector& upperTlimit,
+		  const Vector& frictionCoeffs)
+		  : LinearConstraint(2 * lowerTlimit.size(), lowerTlimit.size(), true, false, false)
+		  , m_lower(lowerTlimit)
+		  , m_upper(upperTlimit)
+		  , m_frictionCoeffs(frictionCoeffs)
+	  {
+		  check();
+	  }
 
   private:
     void check();

@@ -16,6 +16,7 @@ std::ostream& JointTorque::print (std::ostream& os) const
 void JointTorque::check ()
 {
   if (m_lower.size() != m_upper.size())
+
     throw std::invalid_argument("Torque limits size must match.");
   if (m_lower.size() != m_frictionCoeffs.size())
     throw std::invalid_argument("Torque limits size and friction vector size must match.");
