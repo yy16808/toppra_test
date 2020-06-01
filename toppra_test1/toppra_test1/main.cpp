@@ -10,9 +10,18 @@ int main()
 	vd1(1, 0) = 3;
 	vd1(2, 0) = 4.5;
 
-	scara_joint_torque s_j_t(vd1,vd2,vd3);
+	Vector scara_lowerTlimit(2), scara_uperTlimit(2), scara_frictionCoeffs(2);
 
-	std::cout << vd1<< endl;
+	scara_lowerTlimit(0, 0) = -115;
+	scara_lowerTlimit(1, 0) = -47;
+	scara_uperTlimit(0, 0) = 115;
+	scara_uperTlimit(1, 0) = 47;
+	scara_frictionCoeffs(0, 0) = 0;
+	scara_frictionCoeffs(1, 0) = 0;
+
+	scara_joint_torque scara_trq(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs);
+
+	//std::cout << vd1<< endl;
 
 	return 0;
 }

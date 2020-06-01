@@ -36,6 +36,18 @@
     <ClCompile Include="scara_joint_torque.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="glpk-wrapper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="piecewise_poly_path.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="qpOASES-wrapper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="toppra_alg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constraint.hpp">
@@ -57,6 +69,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="scara_joint_torque.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="glpk-wrapper.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="piecewise_poly_path.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="qpOASES-wrapper.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="toppra_alg.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
