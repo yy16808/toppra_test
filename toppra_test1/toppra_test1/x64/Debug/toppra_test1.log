@@ -1,51 +1,9 @@
-﻿  toppra_alg.cpp
-  solver.cpp
-c:\toppra_test\toppra_test1\toppra_test1\solver.cpp(48): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-c:\toppra_test\toppra_test1\toppra_test1\solver.cpp(55): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  scara_joint_torque.cpp
-  qpOASES-wrapper.cpp
-c:\toppra_test\toppra_test1\toppra_test1\qpoases-wrapper.cpp(13): warning C4244: “参数”: 从“Eigen::Index”转换到“qpOASES::int_t”，可能丢失数据
-c:\toppra_test\toppra_test1\toppra_test1\qpoases-wrapper.cpp(61): warning C4018: “<=”: 有符号/无符号不匹配
-c:\toppra_test\toppra_test1\toppra_test1\qpoases-wrapper.cpp(69): warning C4018: “<”: 有符号/无符号不匹配
-  piecewise_poly_path.cpp
-c:\toppra_test\toppra_test1\toppra_test1\piecewise_poly_path.cpp(15): warning C4018: “<”: 有符号/无符号不匹配
-c:\toppra_test\toppra_test1\toppra_test1\piecewise_poly_path.cpp(25): warning C4244: “参数”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
-          with
-          [
-              Derived=Eigen::Matrix<double,-1,-1,0,-1,-1>
-          ]
-c:\toppra_test\toppra_test1\toppra_test1\piecewise_poly_path.cpp(25): warning C4244: “初始化”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
-          with
-          [
-              Derived=Eigen::Matrix<double,-1,-1,0,-1,-1>
-          ]
-c:\toppra_test\toppra_test1\toppra_test1\piecewise_poly_path.cpp(42): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-c:\toppra_test\toppra_test1\toppra_test1\piecewise_poly_path.cpp(56): warning C4018: “<”: 有符号/无符号不匹配
-c:\toppra_test\toppra_test1\toppra_test1\piecewise_poly_path.cpp(182): warning C4244: “=”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
-          with
-          [
-              Derived=Eigen::Matrix<double,-1,1,0,-1,1>
-          ]
-  main.cpp
-  joint_torque.cpp
-c:\toppra_test\toppra_test1\toppra_test1\joint_torque.cpp(43): warning C4018: “<”: 有符号/无符号不匹配
-  glpk-wrapper.cpp
-c:\toppra_test\toppra_test1\toppra_test1\glpk-wrapper.cpp(54): warning C4244: “+=”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
-          with
-          [
-              Derived=Eigen::Matrix<double,-1,-1,0,-1,-1>
-          ]
-c:\toppra_test\toppra_test1\toppra_test1\glpk-wrapper.cpp(73): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-c:\toppra_test\toppra_test1\toppra_test1\glpk-wrapper.cpp(95): warning C4244: “初始化”: 从“Eigen::EigenBase<Derived>::Index”转换到“int”，可能丢失数据
-          with
-          [
-              Derived=Eigen::Matrix<double,-1,-1,0,-1,-1>
-          ]
-  geometric_path.cpp
-c:\toppra_test\toppra_test1\toppra_test1\geometric_path.cpp(8): warning C4018: “<”: 有符号/无符号不匹配
-  constraint.cpp
-  algorithm.cpp
+﻿  scara_joint_torque.cpp
   正在生成代码...
-LINK : warning LNK4098: 默认库“LIBCMT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  正在编译...
+  toppra_alg.cpp
+  正在生成代码...
+  正在跳过...(未检测到相关更改)
+  main.cpp
   toppra_test1.vcxproj -> C:\toppra_test\toppra_test1\x64\Debug\toppra_test1.exe
   toppra_test1.vcxproj -> C:\toppra_test\toppra_test1\x64\Debug\toppra_test1.pdb (Full PDB)

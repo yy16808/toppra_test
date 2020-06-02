@@ -22,7 +22,7 @@ namespace toppra {
 			}
 
 			~scara_joint_torque();
-			void check();
+			
 			void computeInverseDynamics(const Vector& q, const Vector& v, const Vector& a, Vector& tau);
 		};
 

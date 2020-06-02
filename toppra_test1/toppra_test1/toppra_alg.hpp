@@ -19,3 +19,4 @@ class TOPPRA : public PathParametrizationAlgorithm {
 }  // namespace toppra
 
 #endif
+
