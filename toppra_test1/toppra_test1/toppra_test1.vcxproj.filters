@@ -48,6 +48,18 @@
     <ClCompile Include="toppra_alg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test_poly_geometric_path.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test_algorithm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test_constraints.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test_solver.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constraint.hpp">

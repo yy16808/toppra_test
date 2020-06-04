@@ -1,9 +1,23 @@
-﻿  scara_joint_torque.cpp
-  正在生成代码...
-  正在编译...
-  toppra_alg.cpp
-  正在生成代码...
-  正在跳过...(未检测到相关更改)
-  main.cpp
-  toppra_test1.vcxproj -> C:\toppra_test\toppra_test1\x64\Debug\toppra_test1.exe
-  toppra_test1.vcxproj -> C:\toppra_test\toppra_test1\x64\Debug\toppra_test1.pdb (Full PDB)
+﻿生成启动时间为 2020-6-4 13:34:32。
+     1>项目“D:\toppra_project\toppra_test\toppra_test1\toppra_test1\toppra_test1.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /IC:\qpOASES\build\libs\Debug /IC:\qpOASES\include /I"C:\eigen-3.3.7" /I"C:\glpk-4.65\src" /I"C:\glpk-4.65\w64" /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\toppra_project\toppra_test\toppra_test1\x64\Debug\toppra_test1.exe" /INCREMENTAL /NOLOGO glpk.lib qpOASES.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\toppra_project\toppra_test\toppra_test1\x64\Debug\toppra_test1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\toppra_project\toppra_test\toppra_test1\x64\Debug\toppra_test1.lib" /MACHINE:X64 x64\Debug\algorithm.obj
+         x64\Debug\constraint.obj
+         x64\Debug\geometric_path.obj
+         "x64\Debug\glpk-wrapper.obj"
+         x64\Debug\joint_torque.obj
+         x64\Debug\main.obj
+         x64\Debug\piecewise_poly_path.obj
+         "x64\Debug\qpOASES-wrapper.obj"
+         x64\Debug\scara_joint_torque.obj
+         x64\Debug\solver.obj
+         x64\Debug\toppra_alg.obj
+         toppra_test1.vcxproj -> D:\toppra_project\toppra_test\toppra_test1\x64\Debug\toppra_test1.exe
+     1>已完成生成项目“D:\toppra_project\toppra_test\toppra_test1\toppra_test1\toppra_test1.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:01.51
