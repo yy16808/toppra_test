@@ -1,5 +1,0 @@
-﻿  qpOASES-wrapper.cpp
-c:\toppra_test\toppra_test1\toppra_test1\qpoases-wrapper.cpp(3): fatal error C1083: 无法打开包括文件: “qpOASES.hpp”: No such file or directory
-  glpk-wrapper.cpp
-c:\toppra_test\toppra_test1\toppra_test1\glpk-wrapper.cpp(3): fatal error C1083: 无法打开包括文件: “glpk.h”: No such file or directory
-  正在生成代码...
