@@ -1,6 +1,7 @@
 #include "scara_joint_torque.h"
 #include "piecewise_poly_path.hpp"
 #include "qpOASES-wrapper.hpp"
+
 #include "toppra_alg.hpp"
 using namespace toppra;
 using namespace constraint;
@@ -24,19 +25,24 @@ int main()
 
 	scara_joint_torque scara_trq(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs);
 
-	toppra::Matrix coeff{ 4, 2 };
+	toppra::Matrix coeff{ 3, 2 };
 	coeff(0, 0) = 0;
 	coeff(0, 1) = 0;
-	coeff(1, 0) = 1;
-	coeff(1, 1) = 1;
-	coeff(2, 0) = 2;
-	coeff(2, 1) = 2;
-	coeff(3, 0) = 3;
-	coeff(3, 1) = 3;
+	coeff(1, 0) = 14;
+	coeff(1, 1) = 44;
+	coeff(2, 0) = -132;
+	coeff(2, 1) = -79;
+
+
 	toppra::Matrices coefficents = { coeff, coeff };
+	toppra::PiecewisePolyPath p =
+		toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1,2});
+
+	toppra::Vector pos1 = p.eval_single(0.5, 0);
+	toppra::Vector pos2 = p.eval_single(0.5, 1);
 
 	std::shared_ptr<toppra::PiecewisePolyPath> path;
-	path = std::make_shared<toppra::PiecewisePolyPath>(coefficents, std::vector<double>{0, 1, 2});
+	path = std::make_shared<toppra::PiecewisePolyPath>(coefficents, std::vector<double>{0, 1,2});
  	//toppra::PiecewisePolyPath path =
 		//toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1, 2});
 
@@ -49,11 +55,18 @@ int main()
 	std::shared_ptr<toppra::solver::qpOASESWrapper> qp_solver(new toppra::solver::qpOASESWrapper);
 
 	ta.solver(qp_solver);
-	ta.setN(50);
+	ta.setN(300);
 	ta.computePathParametrization();
-
+	ParametrizationData m_data = ta.getParameterizationData();
 	
+	Vector parametrization=m_data.parametrization;
 
+	Matrix controllable_sets= m_data.controllable_sets;
+	double test = 0;
+	for (int i = 0; i < 20; i++) {
+		test=controllable_sets(i);
+	}
 
+		
 	return 0;
 }
