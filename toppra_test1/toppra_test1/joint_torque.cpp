@@ -49,10 +49,13 @@ void JointTorque::computeParams_impl(const GeometricPath& path,
 
     computeInverseDynamics(cfg, zero, zero, c[i]);
     computeInverseDynamics(cfg, zero, vel, a[i]);
+	Vector testa = a[i];
+	Vector testc = c[i];
     a[i] -=  c[i];
+	
     computeInverseDynamics(cfg, vel, acc, b[i]);
     b[i] -=  c[i];
-
+	Vector testb = b[i];
     c[i].array() += vel.array().sign() * m_frictionCoeffs.array();
   }
 }
