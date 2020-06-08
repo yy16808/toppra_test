@@ -1,9 +1,21 @@
 clf;clear;close all; clc;
 deg2rad=pi/180;
-% P1 = 1.0602, P2 = 0.2433, P3 = 0.2438, Jm1 = 0.6496;
-% q2=-79*deg2rad;
+ P1 = 1.0602, P2 = 0.2433, P3 = 0.2438, Jm1 = 0.6496;
+ q1=-132*deg2rad;
+ q2=-79*deg2rad;
+ h1=P1-Jm1+P2+2*cos(q2)*P3;
+ h2=P2+cos(q2)*P3;
+ m1=P2+cos(q2)*P3;
+ m2=P2;
+ A=[h1,m1;h2,m2];
+ Q=[q1,q2]
+ dQ=[14*deg2rad,44*deg2rad]';
+ A*dQ
+ 
 % P1+P2+2*P3*cos(q2)
 % P2+P3*cos(q2)
+
+
 
 load('Test.txt')
 
@@ -15,7 +27,7 @@ A1_acc=14*Test(:,1)*deg2rad;
 A2_acc=44*Test(:,1)*deg2rad;
 T=Test(:,4);
 
- P1 = 1.0602, P2 = 0.2433, P3 = 0.2438, Jm1 = 0.6496;
+%  P1 = 1.0602, P2 = 0.2433, P3 = 0.2438, Jm1 = 0.6496;
 
 ddq1 = A1_acc;
 ddq2 = A2_acc;

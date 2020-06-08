@@ -44,8 +44,23 @@ int main()
 	coeff(2, 0) = -132 * deg2rad;
 	coeff(2, 1) = -79 * deg2rad;
 
+	//coeff(0, 0) = -14 * deg2rad;
+	//coeff(0, 1) = -44 * deg2rad;
+	//coeff(1, 0) = 28* deg2rad;
+	//coeff(1, 1) = 88 * deg2rad;
+	//coeff(2, 0) = -132 * deg2rad;
+	//coeff(2, 1) = -79 * deg2rad;
 
-	toppra::Matrices coefficents = { coeff, coeff };
+	//coeff(0, 0) = 0;
+	//coeff(0, 1) = 0;
+	//coeff(1, 0) = 1;
+	//coeff(1, 1) = 1;
+	//coeff(2, 0) = 2;
+	//coeff(2, 1) = 2;
+	//coeff(3, 0) = 3;
+	//coeff(3, 1) = 3;
+
+	toppra::Matrices coefficents = { coeff};
 	//toppra::PiecewisePolyPath p =
 	//	toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1,2});
 
@@ -53,7 +68,7 @@ int main()
 //	toppra::Vector pos2 = p.eval_single(0.5, 1);
 
 	std::shared_ptr<toppra::PiecewisePolyPath> path;
-	path = std::make_shared<toppra::PiecewisePolyPath>(coefficents, std::vector<double>{0, 1,2});
+	path = std::make_shared<toppra::PiecewisePolyPath>(coefficents, std::vector<double>{0, 1});
  	//toppra::PiecewisePolyPath path =
 		//toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1, 2});
 
