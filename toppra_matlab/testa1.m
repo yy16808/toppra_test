@@ -1,5 +1,6 @@
 clf;clear;close all; clc;
 deg2rad=pi/180;
+rad2deg=180/pi;
  P1 = 1.0602, P2 = 0.2433, P3 = 0.2438, Jm1 = 0.6496;
  q1=-132*deg2rad;
  q2=-79*deg2rad;
@@ -11,7 +12,16 @@ deg2rad=pi/180;
  Q=[q1,q2]
  dQ=[14*deg2rad,44*deg2rad]';
  A*dQ
- 
+ p1_theta1=-132*deg2rad; p1_theta2=-79*deg2rad;
+  p2_theta1=-118*deg2rad; p2_theta2=-35*deg2rad;
+ L1=0.225;L2=0.275;
+p1_x=cos(p1_theta1+p1_theta2)*L2+cos(p1_theta1)*L1;
+p1_y=sin(p1_theta1+p1_theta2)*L2+sin(p1_theta1)*L1;
+
+p2_x=cos(p2_theta1+p2_theta2)*L2+cos(p2_theta1)*L1;
+p2_y=sin(p2_theta1+p2_theta2)*L2+sin(p2_theta1)*L1;
+
+dis_pt=sqrt((p1_x-p2_x)^2+(p1_y-p2_y)^2);
 % P1+P2+2*P3*cos(q2)
 % P2+P3*cos(q2)
 
@@ -53,7 +63,7 @@ grid on;
 grid minor;
 
 subplot(4,2,3);
-plot(T,A1_vel,'g');
+plot(T,A1_vel*rad2deg,'g');
 legend('vel');
 xlabel('time');
 ylabel('vel');
@@ -89,7 +99,7 @@ grid on;
 grid minor;
 
 subplot(4,2,4);
-plot(T,A2_vel,'g');
+plot(T,A2_vel*rad2deg,'g');
 legend('vel');
 xlabel('time');
 ylabel('vel');

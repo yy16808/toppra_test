@@ -81,7 +81,8 @@ int main()
 	std::shared_ptr<toppra::solver::qpOASESWrapper> qp_solver(new toppra::solver::qpOASESWrapper);
 
 	ta.solver(qp_solver);
-	ta.setN(300);
+	
+	ta.setN(100);
 	ta.computePathParametrization();
 	ParametrizationData m_data = ta.getParameterizationData();
 
@@ -93,9 +94,9 @@ int main()
 	Vector parametrization=m_data.parametrization;
 
 	Matrix controllable_sets= m_data.controllable_sets;
-	const int size = 301;
+	const int size = 101;
 	double acc[size], total = 0, av_vel[size], vel[size],r_time[size] = {0.0};
-	double delta = 1.0 / 300, next_vel = 0;
+	double delta = 1.0 / 100, next_vel = 0;
 
 	for (int i = 0; i < size; i++) {
 		
@@ -104,7 +105,7 @@ int main()
 		else
 			acc[i] = (parametrization(i + 1) - parametrization(i)) / (2 * delta);
 		//total += acc[i];
-		if (i != 300)
+		if (i != 100)
 			next_vel = sqrt(parametrization(i + 1));
 		else
 			next_vel = 0;
