@@ -60,6 +60,12 @@
     <ClCompile Include="test_solver.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="linear_joint_acceleration.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="linear_joint_velocity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constraint.hpp">
@@ -93,6 +99,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="toppra_alg.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linear_joint_acceleration.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linear_joint_velocity.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

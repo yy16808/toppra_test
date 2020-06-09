@@ -19,6 +19,8 @@ int main()
 
 	//scara_joint_torque sjt;
 	double  deg2rad = PI / 180;
+	const int size = 61; //N+1
+
 	Vector vd1(3), vd2(3), vd3(3);
 	vd1(0, 0) = 2;
 	vd1(1, 0) = 3;
@@ -27,48 +29,59 @@ int main()
 	Vector scara_lowerTlimit(2), scara_uperTlimit(2), scara_frictionCoeffs(2);
 
 	scara_lowerTlimit(0, 0) = -115;
-	scara_lowerTlimit(1, 0) = -47;
+	scara_lowerTlimit(1, 0) = -50;
 	scara_uperTlimit(0, 0) = 115;
-	scara_uperTlimit(1, 0) = 47;
+	scara_uperTlimit(1, 0) = 50;
 	scara_frictionCoeffs(0, 0) = 0;
 	scara_frictionCoeffs(1, 0) = 0;
 
 	/*scara_joint_torque scara_trq(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs);
 	scara_trq.print(cout);*/
 
-	toppra::Matrix coeff{ 3, 2 };
-	coeff(0, 0) = 0;
-	coeff(0, 1) = 0;
-	coeff(1, 0) = 14* deg2rad;
-	coeff(1, 1) = 44 * deg2rad;
-	coeff(2, 0) = -132 * deg2rad;
-	coeff(2, 1) = -79 * deg2rad;
+	//toppra::Matrix coeff1{ 6, 2 }, coeff2{ 3, 2 };
+	//coeff1(0, 0) = 14 * 6 * deg2rad;
+	//coeff1(0, 1) = 44 * 6 * deg2rad;
 
-	//coeff(0, 0) = -14 * deg2rad;
-	//coeff(0, 1) = -44 * deg2rad;
-	//coeff(1, 0) = 28* deg2rad;
-	//coeff(1, 1) = 88 * deg2rad;
-	//coeff(2, 0) = -132 * deg2rad;
-	//coeff(2, 1) = -79 * deg2rad;
+	//coeff1(1, 0) = -14 * 15 * deg2rad;
+	//coeff1(1, 1) = -44 * 15 * deg2rad;
 
-	//coeff(0, 0) = 0;
-	//coeff(0, 1) = 0;
-	//coeff(1, 0) = 1;
-	//coeff(1, 1) = 1;
-	//coeff(2, 0) = 2;
-	//coeff(2, 1) = 2;
-	//coeff(3, 0) = 3;
-	//coeff(3, 1) = 3;
+	//coeff1(2, 0) = 14 * 10 * deg2rad;
+	//coeff1(2, 1) = 44 * 10 * deg2rad;
 
-	toppra::Matrices coefficents = { coeff};
+	//coeff1(3, 0) = 0 * deg2rad;
+	//coeff1(3, 1) = 0 * deg2rad;
+
+	//coeff1(4, 0) = 0* deg2rad;
+	//coeff1(4, 1) = 0 * deg2rad;
+
+	//coeff1(5, 0) = -132 * deg2rad;
+	//coeff1(5, 1) = -79 * deg2rad;
+
+	toppra::Matrix coeff1{ 3, 2 }, coeff2{ 3, 2 };
+	coeff1(0, 0) = 0;
+	coeff1(0, 1) = 0;
+	coeff1(1, 0) = 14* deg2rad;
+	coeff1(1, 1) = 44 * deg2rad;
+	coeff1(2, 0) = -132 * deg2rad ;
+	coeff1(2, 1) = -79 * deg2rad ;
+
+	coeff2(0, 0) = 0;
+	coeff2(0, 1) = 0;
+	coeff2(1, 0) = -14 * deg2rad;
+	coeff2(1, 1) = -44 * deg2rad;
+	coeff2(2, 0) = -104* deg2rad;
+	coeff2(2, 1) =  9 * deg2rad;
+
+
+
+	toppra::Matrices coefficents = { coeff1};
 	//toppra::PiecewisePolyPath p =
-	//	toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1,2});
+	//	toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1, 2});
 
-//	toppra::Vector pos1 = p.eval_single(0.5, 0);
-//	toppra::Vector pos2 = p.eval_single(0.5, 1);
 
 	std::shared_ptr<toppra::PiecewisePolyPath> path;
-	path = std::make_shared<toppra::PiecewisePolyPath>(coefficents, std::vector<double>{0, 1});
+	path = std::make_shared<toppra::PiecewisePolyPath>(coefficents, std::vector<double>{0,1});
+
  	//toppra::PiecewisePolyPath path =
 		//toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1, 2});
 
@@ -82,7 +95,7 @@ int main()
 
 	ta.solver(qp_solver);
 	
-	ta.setN(100);
+	ta.setN(size-1);
 	ta.computePathParametrization();
 	ParametrizationData m_data = ta.getParameterizationData();
 
@@ -94,25 +107,25 @@ int main()
 	Vector parametrization=m_data.parametrization;
 
 	Matrix controllable_sets= m_data.controllable_sets;
-	const int size = 101;
+	
 	double acc[size], total = 0, av_vel[size], vel[size],r_time[size] = {0.0};
-	double delta = 1.0 / 100, next_vel = 0;
-
+	double delta = 1.0 / (size-1), next_vel = 0;
+	
 	for (int i = 0; i < size; i++) {
 		
-		if (i == size-1)
+		if (i == size -1)
 			acc[i] = acc[i - 1];
 		else
 			acc[i] = (parametrization(i + 1) - parametrization(i)) / (2 * delta);
 		//total += acc[i];
-		if (i != 100)
+		if (i != size -1)
 			next_vel = sqrt(parametrization(i + 1));
 		else
 			next_vel = 0;
 
 		av_vel[i] = (sqrt(parametrization(i))+ next_vel)/2;
 		vel[i] = sqrt(parametrization(i));
-
+		 
 		if (i==0)
 			r_time[i] = 0;
 		else
