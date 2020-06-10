@@ -35,6 +35,14 @@ int main()
 	scara_frictionCoeffs(0, 0) = 0;
 	scara_frictionCoeffs(1, 0) = 0;
 
+	Vector acc_lowerTlimit(2), acc_uperTlimit(2);
+
+	acc_lowerTlimit(0, 0) = -1500 * deg2rad;
+	acc_lowerTlimit(1, 0) = -4000 * deg2rad;
+	acc_uperTlimit(0, 0) = 1500 * deg2rad;
+	acc_uperTlimit(1, 0) = 4000 * deg2rad;
+
+
 	/*scara_joint_torque scara_trq(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs);
 	scara_trq.print(cout);*/
 
@@ -86,9 +94,12 @@ int main()
 		//toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1, 2});
 
 	toppra::LinearConstraintPtrs v;
+	
+	v = toppra::LinearConstraintPtrs{std::make_shared<toppra::constraint::scara_joint_torque>(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs),
+		std::make_shared<toppra::constraint::LinearJointAcceleration>(-1000 * toppra::Vector::Ones(2), 1000 * toppra::Vector::Ones(2)) };
 
-	v = toppra::LinearConstraintPtrs{ std::make_shared<toppra::constraint::scara_joint_torque>(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs) };
-
+		//(acc_lowerTlimit, acc_uperTlimit) 
+		
 	algorithm::TOPPRA ta(v, path);
 
 	std::shared_ptr<toppra::solver::qpOASESWrapper> qp_solver(new toppra::solver::qpOASESWrapper);
