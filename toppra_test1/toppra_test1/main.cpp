@@ -1,4 +1,5 @@
 #include "scara_joint_torque.h"
+#include "linear_joint_acceleration.hpp"
 #include "piecewise_poly_path.hpp"
 #include "qpOASES-wrapper.hpp"
 #include<windows.h>  
@@ -94,11 +95,11 @@ int main()
 		//toppra::PiecewisePolyPath(coefficents, std::vector<double>{0, 1, 2});
 
 	toppra::LinearConstraintPtrs v;
-	
-	v = toppra::LinearConstraintPtrs{std::make_shared<toppra::constraint::scara_joint_torque>(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs),
-		std::make_shared<toppra::constraint::LinearJointAcceleration>(-1000 * toppra::Vector::Ones(2), 1000 * toppra::Vector::Ones(2)) };
 
-		//(acc_lowerTlimit, acc_uperTlimit) 
+	v = toppra::LinearConstraintPtrs{std::make_shared<toppra::constraint::scara_joint_torque>(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs),
+		std::make_shared<toppra::constraint::LinearJointAcceleration>(acc_lowerTlimit, acc_uperTlimit) };
+
+		// (acc_lowerTlimit, acc_uperTlimit) -1000 * toppra::Vector::Ones(2), 1000 * toppra::Vector::Ones(2)
 		
 	algorithm::TOPPRA ta(v, path);
 
@@ -150,7 +151,7 @@ int main()
 
 	std::ofstream outFile;
 	//打开文件
-	outFile.open("Test.txt");//ios::app 
+	outFile.open("../../toppra_matlab/Test.txt");//ios::app 
 	for (int i = 0; i < size; i++)
 	{
 		//写入数据

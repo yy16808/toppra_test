@@ -50,7 +50,7 @@ dq1 = A1_vel;
 dq2 = A2_vel;
 q1 = A1_pos*deg2rad;
 q2 = A2_pos*deg2rad;
-for i=1:101
+for i=1:61
     tau1(i) = (P1 - Jm1)*ddq1(i) + P2*(ddq1(i) + ddq2(i)) + P3*((2 * ddq1(i) + ddq2(i))*cos(q2(i)) - (dq2(i)*dq2(i) + 2 * dq1(i)*dq2(i))*sin(q2(i)));
     tau2(i) = P2*(ddq1(i) + ddq2(i)) + P3*(ddq1(i)*cos(q2(i))+dq1(i)*dq1(i)*sin(q2(i)));
 end

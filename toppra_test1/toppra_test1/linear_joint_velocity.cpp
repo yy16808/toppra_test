@@ -1,6 +1,6 @@
-#include <toppra/constraint/linear_joint_velocity.hpp>
+#include "linear_joint_velocity.hpp"
 
-#include <toppra/geometric_path.hpp>
+#include "geometric_path.hpp"
 
 namespace toppra {
 namespace constraint {
