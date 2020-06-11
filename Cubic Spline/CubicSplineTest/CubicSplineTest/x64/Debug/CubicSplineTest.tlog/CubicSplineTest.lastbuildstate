@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+Debug|x64|C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\|

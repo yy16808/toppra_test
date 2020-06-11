@@ -1,0 +1,14 @@
+﻿生成启动时间为 2020-6-9 17:00:27。
+     1>项目“C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\CubicSplineTest\CubicSplineTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt bench.cpp interpol_alglib.cpp
+         interpol_alglib.cpp
+     1>c:\program files\matlab\r2016b\bin\matlab\kuka scara\stx-scara\scara robot dynamics identification\cpp\cubicsplinetest\cubicsplinetest\interpol_alglib.cpp(4): fatal error C1083: 无法打开包括文件: “interpolation.h”: No such file or directory
+         bench.cpp
+     1>c:\program files\matlab\r2016b\bin\matlab\kuka scara\stx-scara\scara robot dynamics identification\cpp\cubicsplinetest\cubicsplinetest\bench.cpp(4): fatal error C1083: 无法打开包括文件: “sys/time.h”: No such file or directory
+         正在生成代码...
+     1>已完成生成项目“C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\CubicSplineTest\CubicSplineTest.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.32

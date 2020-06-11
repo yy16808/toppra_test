@@ -10,7 +10,7 @@ namespace constraint {
 class LinearJointAcceleration : public LinearConstraint {
   public:
     LinearJointAcceleration (const Vector& lowerAlimit, const Vector& upperAlimit)
-      : LinearConstraint (lowerAlimit.size() * 2, lowerAlimit.size(), true, false, false)
+      : LinearConstraint (lowerAlimit.size() * 2, lowerAlimit.size(), /*false*/ true, false, false)
       , m_lower (lowerAlimit)
       , m_upper (upperAlimit)
     {

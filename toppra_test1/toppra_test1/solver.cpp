@@ -58,7 +58,9 @@ void Solver::initialize (const LinearConstraintPtrs& constraints, const Geometri
     lin->computeParams(*path, times,
         lparam->a, lparam->b, lparam->c, lparam->F, lparam->g,
         bparam->u, bparam->x);
+
   }
+
 }
 
 } // namespace toppra

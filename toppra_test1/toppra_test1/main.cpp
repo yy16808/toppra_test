@@ -38,10 +38,10 @@ int main()
 
 	Vector acc_lowerTlimit(2), acc_uperTlimit(2);
 
-	acc_lowerTlimit(0, 0) = -1500 * deg2rad;
-	acc_lowerTlimit(1, 0) = -4000 * deg2rad;
-	acc_uperTlimit(0, 0) = 1500 * deg2rad;
-	acc_uperTlimit(1, 0) = 4000 * deg2rad;
+	acc_lowerTlimit(0, 0) = -80000 * deg2rad;
+	acc_lowerTlimit(1, 0) = -8000 * deg2rad;
+	acc_uperTlimit(0, 0) = 8000 * deg2rad;
+	acc_uperTlimit(1, 0) = 8000 * deg2rad;
 
 
 	/*scara_joint_torque scara_trq(scara_lowerTlimit, scara_uperTlimit, scara_frictionCoeffs);
@@ -69,7 +69,7 @@ int main()
 	toppra::Matrix coeff1{ 3, 2 }, coeff2{ 3, 2 };
 	coeff1(0, 0) = 0;
 	coeff1(0, 1) = 0;
-	coeff1(1, 0) = 14* deg2rad;
+	coeff1(1, 0) = 14 *deg2rad;
 	coeff1(1, 1) = 44 * deg2rad;
 	coeff1(2, 0) = -132 * deg2rad ;
 	coeff1(2, 1) = -79 * deg2rad ;
@@ -146,7 +146,7 @@ int main()
 		total+= delta / av_vel[i];
 
 		cout <<i << "  " << acc[i] <<"  "<< vel[i] << "  " << av_vel[i] << " "
-			<< r_time[i] <<endl;
+			<< r_time[i] << "  " << i*1.0/(size-1)<<endl;
 	}
 
 	std::ofstream outFile;

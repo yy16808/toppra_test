@@ -1,0 +1,17 @@
+﻿生成启动时间为 2020-6-11 20:15:07。
+     1>项目“C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\CubicSplineTest\CubicSplineTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\program files\matlab\r2016b\bin\matlab\kuka scara\stx-scara\scara robot dynamics identification\cpp\cubicsplinetest\cubicsplinetest\spline.h(58): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>c:\program files\matlab\r2016b\bin\matlab\kuka scara\stx-scara\scara robot dynamics identification\cpp\cubicsplinetest\cubicsplinetest\spline.h(62): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>c:\program files\matlab\r2016b\bin\matlab\kuka scara\stx-scara\scara robot dynamics identification\cpp\cubicsplinetest\cubicsplinetest\spline.h(148): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>c:\program files\matlab\r2016b\bin\matlab\kuka scara\stx-scara\scara robot dynamics identification\cpp\cubicsplinetest\cubicsplinetest\spline.h(292): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\x64\Debug\CubicSplineTest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\x64\Debug\CubicSplineTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\x64\Debug\CubicSplineTest.lib" /MACHINE:X64 x64\Debug\main.obj
+         CubicSplineTest.vcxproj -> C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\x64\Debug\CubicSplineTest.exe
+     1>已完成生成项目“C:\Program Files\MATLAB\R2016b\bin\MATLAB\KUKA SCARA\STX-SCARA\Scara Robot Dynamics Identification\Cpp\CubicSplineTest\CubicSplineTest\CubicSplineTest.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:00.85

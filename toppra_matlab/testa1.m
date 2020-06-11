@@ -130,3 +130,4 @@ ylabel('trq');
 title('motor2\_trq');
 grid on;
 grid minor;
+spline

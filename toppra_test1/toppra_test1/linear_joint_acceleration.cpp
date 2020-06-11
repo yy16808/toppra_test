@@ -37,6 +37,27 @@ void LinearJointAcceleration::computeParams_impl(const GeometricPath& path,
   Vector& _g = g[0];
   _g.head(ndofs) =  m_upper;
   _g.tail(ndofs) = -m_lower;
+  //double coeff_limit = 0.0;
+  //double headbuf=0.002, endbuf = 1- headbuf;
+  //for (std::size_t i = 0; i < N_1; ++i) {
+	 // Matrix& _F = F[i];
+	 // _F.topRows(ndofs).setIdentity();
+	 // _F.bottomRows(ndofs).setZero();
+	 // _F.bottomRows(ndofs).diagonal().setConstant(-1);
+	 // Vector& _g = g[i];
+	 // if (i < headbuf*(N_1-1))
+		//  coeff_limit = 0.1 + (i*1.0) / N_1 / headbuf*0.9;
+	 // else if (i >=endbuf*(N_1-1))
+		//  coeff_limit = 1 - (i*1.0 / (N_1-1)- endbuf) / headbuf*0.9;
+	 // else
+		//  coeff_limit = 1;
+	 // if (i > 990)
+	 // {
+		//  int stop=1;
+	 // }
+	 // _g.head(ndofs) = m_upper*coeff_limit;
+	 // _g.tail(ndofs) = -m_lower*coeff_limit;
+  //}
 
   assert(ndofs == path.dof());
   for (std::size_t i = 0; i < N_1; ++i) {
