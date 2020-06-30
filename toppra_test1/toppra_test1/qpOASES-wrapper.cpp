@@ -29,7 +29,7 @@ qpOASESWrapper::qpOASESWrapper () {}
 
 void qpOASESWrapper::initialize (const LinearConstraintPtrs& constraints, const GeometricPathPtr& path,
         const Vector& times)
-{
+ {
   Solver::initialize (constraints, path, times);
   m_boundary = m_defaultBoundary;
 

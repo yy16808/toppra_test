@@ -34,12 +34,18 @@ dis_pt=sqrt((p1_x-p2_x)^2+(p1_y-p2_y)^2);
 
 load('Test.txt')
 
-A1_pos=14*Test(:,3)-132;
-A2_pos=44*Test(:,3)-79;
-A1_vel=14*Test(:,2)*deg2rad;
-A2_vel=44*Test(:,2)*deg2rad;
-A1_acc=14*Test(:,1)*deg2rad;
-A2_acc=44*Test(:,1)*deg2rad;
+% A1_pos=14*Test(:,3)-132;
+% A2_pos=44*Test(:,3)-79;
+% A1_vel=14*Test(:,2)*deg2rad;
+% A2_vel=44*Test(:,2)*deg2rad;
+% A1_acc=14*Test(:,1)*deg2rad;
+% A2_acc=44*Test(:,1)*deg2rad;
+A1_pos=Test(:,7);
+A2_pos=Test(:,10);
+A1_vel=Test(:,6);
+A2_vel=Test(:,9);
+A1_acc=Test(:,5);
+A2_acc=Test(:,8);
 T=Test(:,4);
 
 %  P1 = 1.0602, P2 = 0.2433, P3 = 0.2438, Jm1 = 0.6496;
@@ -50,7 +56,7 @@ dq1 = A1_vel;
 dq2 = A2_vel;
 q1 = A1_pos*deg2rad;
 q2 = A2_pos*deg2rad;
-for i=1:61
+for i=1:size(Test(:,1))
     tau1(i) = (P1 - Jm1)*ddq1(i) + P2*(ddq1(i) + ddq2(i)) + P3*((2 * ddq1(i) + ddq2(i))*cos(q2(i)) - (dq2(i)*dq2(i) + 2 * dq1(i)*dq2(i))*sin(q2(i)));
     tau2(i) = P2*(ddq1(i) + ddq2(i)) + P3*(ddq1(i)*cos(q2(i))+dq1(i)*dq1(i)*sin(q2(i)));
 end
@@ -59,7 +65,7 @@ end
 
 figure(1)
 subplot(4,2,1);
-plot(T,A1_pos,'r');
+plot(T,A1_pos*rad2deg,'r');
 legend('vel');
 xlabel('time');
 ylabel('pos');
@@ -95,7 +101,7 @@ grid on;
 grid minor;
 
 subplot(4,2,2);
-plot(T,A2_pos,'r');
+plot(T,A2_pos*rad2deg,'r');
 legend('vel');
 xlabel('time');
 ylabel('pos');
@@ -130,4 +136,3 @@ ylabel('trq');
 title('motor2\_trq');
 grid on;
 grid minor;
-spline

@@ -21,8 +21,9 @@ Matrix differentiateCoefficients(const Matrix &coefficients) {
 PiecewisePolyPath::PiecewisePolyPath(const Matrices & coefficients,
                                      std::vector<value_type> breakpoints)
     : GeometricPath (coefficients[0].cols()),
-      m_coefficients(coefficients), m_breakpoints(std::move(breakpoints)),
-      m_degree(coefficients[0].rows() - 1) {
+     m_coefficients(coefficients), m_breakpoints(std::move(breakpoints)),
+      m_degree(coefficients[0].rows() - 1)
+{
 
   checkInputArgs();
   computeDerivativesCoefficients();

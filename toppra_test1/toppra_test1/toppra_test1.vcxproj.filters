@@ -66,6 +66,12 @@
     <ClCompile Include="linear_joint_velocity.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SplinePath.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test_hermite_spline.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constraint.hpp">
@@ -105,6 +111,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="linear_joint_velocity.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SplinePath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="spline.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
