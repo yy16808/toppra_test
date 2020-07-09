@@ -31,7 +31,6 @@ namespace constraint {
  * */
 class JointTorque : public LinearConstraint {
   public:
-	 
     virtual ~JointTorque () {}
 
     virtual std::ostream& print(std::ostream& os) const;
@@ -45,21 +44,57 @@ class JointTorque : public LinearConstraint {
     virtual void computeInverseDynamics (const Vector& q, const Vector& v, const Vector& a,
         Vector& tau) = 0;
 
+    const Vector& lowerBounds () const
+    { return m_lower; }
+
+    void lowerBounds (const Vector& lb)
+    {
+      assert(lb.size() == m_lower.size());
+      m_lower = lb;
+    }
+
+    const Vector& upperBounds () const
+    { return m_upper; }
+
+    void upperBounds (const Vector& ub)
+    {
+      assert(ub.size() == m_upper.size());
+      m_upper = ub;
+    }
+
+    const Vector& frictionCoeffs () const
+    { return m_frictionCoeffs; }
+
+    void frictionCoeffs (const Vector& fc)
+    {
+      assert(fc.size() == m_frictionCoeffs.size());
+      m_frictionCoeffs = fc;
+    }
+
   protected:
     /**
      * \param lowerTlimit lower torque limit
      * \param upperTlimit upper torque limit
      * \param frictionCoeffs dry friction coefficients of each joint.
+     *        size 0 when not considering friction.
      * */
-	  JointTorque(const Vector& lowerTlimit, const Vector& upperTlimit,
-		  const Vector& frictionCoeffs)
-		  : LinearConstraint(2 * lowerTlimit.size(), lowerTlimit.size(), true, false, false)
-		  , m_lower(lowerTlimit)
-		  , m_upper(upperTlimit)
-		  , m_frictionCoeffs(frictionCoeffs)
-	  {
-		  check();
-	  }
+    JointTorque (const Vector& lowerTlimit, const Vector& upperTlimit,
+        const Vector& frictionCoeffs)
+      : LinearConstraint (2*lowerTlimit.size(), lowerTlimit.size(), true, false, false)
+      , m_lower (lowerTlimit)
+      , m_upper (upperTlimit)
+      , m_frictionCoeffs (frictionCoeffs)
+    {
+      check();
+    }
+
+    /// Move-assignment constructor
+    JointTorque (JointTorque&& other)
+      : LinearConstraint (other)
+      , m_lower(std::move(other.m_lower))
+      , m_upper(std::move(other.m_upper))
+      , m_frictionCoeffs(std::move(other.m_frictionCoeffs))
+    {}
 
   private:
     void check();

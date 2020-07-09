@@ -16,9 +16,8 @@ std::ostream& JointTorque::print (std::ostream& os) const
 void JointTorque::check ()
 {
   if (m_lower.size() != m_upper.size())
-
     throw std::invalid_argument("Torque limits size must match.");
-  if (m_lower.size() != m_frictionCoeffs.size())
+  if (m_frictionCoeffs.size() != 0 && m_lower.size() != m_frictionCoeffs.size())
     throw std::invalid_argument("Torque limits size and friction vector size must match.");
   if ((m_lower.array() > m_upper.array()).any())
     throw std::invalid_argument("Bad torque limits.");
@@ -44,19 +43,18 @@ void JointTorque::computeParams_impl(const GeometricPath& path,
     Vector cfg = path.eval_single(times[i], 0);
     Vector vel = path.eval_single(times[i], 1);
     Vector acc = path.eval_single(times[i], 2);
+    assert(cfg.size() == path.configSize());
     assert(vel.size() == ndofs);
     assert(acc.size() == ndofs);
 
     computeInverseDynamics(cfg, zero, zero, c[i]);
     computeInverseDynamics(cfg, zero, vel, a[i]);
-	Vector testa = a[i];
-	Vector testc = c[i];
     a[i] -=  c[i];
-	
     computeInverseDynamics(cfg, vel, acc, b[i]);
     b[i] -=  c[i];
-	Vector testb = b[i];
-    c[i].array() += vel.array().sign() * m_frictionCoeffs.array();
+
+    if (m_frictionCoeffs.size() > 0)
+      c[i].array() += vel.array().sign() * m_frictionCoeffs.array();
   }
 }
 

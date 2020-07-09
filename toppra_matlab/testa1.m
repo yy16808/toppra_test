@@ -54,85 +54,152 @@ ddq1 = A1_acc;
 ddq2 = A2_acc;
 dq1 = A1_vel;
 dq2 = A2_vel;
-q1 = A1_pos*deg2rad;
-q2 = A2_pos*deg2rad;
+q1 = A1_pos;
+q2 = A2_pos;
 for i=1:size(Test(:,1))
     tau1(i) = (P1 - Jm1)*ddq1(i) + P2*(ddq1(i) + ddq2(i)) + P3*((2 * ddq1(i) + ddq2(i))*cos(q2(i)) - (dq2(i)*dq2(i) + 2 * dq1(i)*dq2(i))*sin(q2(i)));
     tau2(i) = P2*(ddq1(i) + ddq2(i)) + P3*(ddq1(i)*cos(q2(i))+dq1(i)*dq1(i)*sin(q2(i)));
 end
 
 
-
 figure(1)
-subplot(4,2,1);
-plot(T,A1_pos*rad2deg,'r');
-legend('vel');
+subplot(3,1,1);
+plot(T,A1_pos*rad2deg,'r');hold on;
+plot(T,A2_pos*rad2deg,'b');
+legend('motor1\_pos','motor2\_pos');
 xlabel('time');
 ylabel('pos');
-title('motor1\_pos');
+title('pos');
 grid on;
 grid minor;
 
-subplot(4,2,3);
-plot(T,A1_vel*rad2deg,'g');
-legend('vel');
+subplot(3,1,2);
+plot(T,A1_vel*rad2deg,'r');hold on;
+plot(T,A2_vel*rad2deg,'b','Marker','*');
+legend('motor1\_vel','motor2\_vel');
 xlabel('time');
 ylabel('vel');
-title('motor1\_vel');
+title('vel');
 grid on;
 grid minor;
 
-subplot(4,2,5);
-plot(T,A1_acc*rad2deg,'b');
-legend('acc');
-xlabel('time');
-ylabel('acc');
-title('motor1\_acc');
-grid on;
-grid minor;
-
-subplot(4,2,7);
-plot(T,tau1,'b');
-legend('trq');
-xlabel('time');
-ylabel('trq');
-title('motor1\_trq');
-grid on;
-grid minor;
-
-subplot(4,2,2);
-plot(T,A2_pos*rad2deg,'r');
-legend('vel');
-xlabel('time');
-ylabel('pos');
-title('motor2\_pos');
-grid on;
-grid minor;
-
-subplot(4,2,4);
-plot(T,A2_vel*rad2deg,'g');
-legend('vel');
-xlabel('time');
-ylabel('vel');
-title('motor2\_vel');
-grid on;
-grid minor;
-
-
-subplot(4,2,6);
+subplot(3,1,3);
+plot(T,A1_acc*rad2deg,'r');hold on;
 plot(T,A2_acc*rad2deg,'b');
-legend('acc');
+legend('motor1\_acc','motor2\_acc');
 xlabel('time');
 ylabel('acc');
-title('motor2\_acc');
+title('acc');
+grid on;
+grid minor;
+suptitle('CRC\_A1  VS  CRC\_A2');
+
+
+limitMax_pos=T*0+55;
+limitMax_neg=T*0-55;
+limit_pos=T*0+47;
+limit_neg=T*0-47;
+
+figure(2)
+subplot(2,1,1);
+plot(T,tau1,'b','LineWidth',2);
+legend('motor1\_gear trq')
+xlabel('time');
+ylabel('gear trq');
+title('gear trq');
 grid on;
 grid minor;
 
-subplot(4,2,8);
-plot(T,tau2,'b');
-legend('trq');
+subplot(2,1,2);
+plot(T,tau2,'b','LineWidth',2); hold on;
+plot(T,limit_pos,'g');
+hold on;
+plot(T,limit_neg,'g');
+hold on;
+plot(T,limitMax_pos,'m');
+hold on;
+plot(T,limitMax_neg,'m');
+legend('motor2\_gear trq','trqlimit=47N','trqlimit=-47N','trqlimitMax=55N','trqlimitMax=-55N')
+
 xlabel('time');
-ylabel('trq');
-title('motor2\_trq');
+ylabel('gear trq');
+title('gear trq');
 grid on;
 grid minor;
+
+suptitle('CRC\_A1  VS  CRC\_A2');
+
+% 
+% figure(1)
+% subplot(4,2,1);
+% plot(T,A1_pos*rad2deg,'r');
+% legend('vel');
+% xlabel('time');
+% ylabel('pos');
+% title('motor1\_pos');
+% grid on;
+% grid minor;
+% 
+% subplot(4,2,3);
+% plot(T,A1_vel*rad2deg,'g');
+% legend('vel');
+% xlabel('time');
+% ylabel('vel');
+% title('motor1\_vel');
+% grid on;
+% grid minor;
+% 
+% subplot(4,2,5);
+% plot(T,A1_acc*rad2deg,'b');
+% legend('acc');
+% xlabel('time');
+% ylabel('acc');
+% title('motor1\_acc');
+% grid on;
+% grid minor;
+% 
+% subplot(4,2,7);
+% plot(T,tau1,'b');
+% legend('trq');
+% xlabel('time');
+% ylabel('trq');
+% title('motor1\_trq');
+% grid on;
+% grid minor;
+% 
+% subplot(4,2,2);
+% plot(T,A2_pos*rad2deg,'r');
+% legend('vel');
+% xlabel('time');
+% ylabel('pos');
+% title('motor2\_pos');
+% grid on;
+% grid minor;
+% 
+% subplot(4,2,4);
+% plot(T,A2_vel*rad2deg,'g');
+% legend('vel');
+% xlabel('time');
+% ylabel('vel');
+% title('motor2\_vel');
+% grid on;
+% grid minor;
+% 
+% 
+% subplot(4,2,6);
+% plot(T,A2_acc*rad2deg,'b');
+% legend('acc');
+% xlabel('time');
+% ylabel('acc');
+% title('motor2\_acc');
+% grid on;
+% grid minor;
+% 
+% subplot(4,2,8);
+% plot(T,tau2,'b');
+% legend('trq');
+% xlabel('time');
+% ylabel('trq');
+% title('motor2\_trq');
+% grid on;
+% grid minor;

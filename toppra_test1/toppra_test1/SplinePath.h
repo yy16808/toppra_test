@@ -19,6 +19,16 @@ namespace toppra {
 		*/
 		Vector eval_single(value_type pos, int order = 0) const;
 		/**
+		* /brief Evaluate the path at given positions (vector).
+		*
+		* Default implementation: Evaluation each point one-by-one.
+		*/
+		virtual Vectors eval(const Vector &positions, int order = 0) const;
+
+		void serialize(std::ostream &O) const override;
+		void deserialize(std::istream &I) override;
+
+		/**
 		* Return the starting and ending path positions.
 		*/
 		Bound pathInterval() const;
